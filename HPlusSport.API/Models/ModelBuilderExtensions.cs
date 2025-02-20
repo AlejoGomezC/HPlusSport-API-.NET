@@ -29,7 +29,7 @@ namespace HPlusSport.API.Models
                 {
                     Id = 1,
                     Name = "Running Shoes",
-                    Sku = 1001,
+                    Sku = "1001",
                     Description = "Shoes for running",
                     Price = 79.99m,
                     IsAvailable = true,
@@ -39,7 +39,7 @@ namespace HPlusSport.API.Models
                 {
                     Id = 2,
                     Name = "Running Shorts",
-                    Sku = 1002,
+                    Sku = "1002",
                     Description = "Shorts for running",
                     Price = 29.99m,
                     IsAvailable = true,
@@ -49,7 +49,7 @@ namespace HPlusSport.API.Models
                 {
                     Id = 3,
                     Name = "Basketball Shoes",
-                    Sku = 1003,
+                    Sku = "1003",
                     Description = "Shoes for basketball",
                     Price = 109.99m,
                     IsAvailable = true,
@@ -59,7 +59,7 @@ namespace HPlusSport.API.Models
                 {
                     Id = 4,
                     Name = "Tennis Shoes",
-                    Sku = 1004,
+                    Sku = "1004",
                     Description = "Shoes for tennis",
                     Price = 89.99m,
                     IsAvailable = true,
@@ -69,7 +69,7 @@ namespace HPlusSport.API.Models
                 {
                     Id = 5,
                     Name = "Tennis Balls",
-                    Sku = 1005,
+                    Sku = "1005",
                     Description = "Balls for tennis",
                     Price = 4.99m,
                     IsAvailable = true,
@@ -79,7 +79,7 @@ namespace HPlusSport.API.Models
                 {
                     Id = 6,
                     Name = "Basketball",
-                    Sku = 1006,
+                    Sku = "1006",
                     Description = "Ball for basketball",
                     Price = 9.99m,
                     IsAvailable = true,

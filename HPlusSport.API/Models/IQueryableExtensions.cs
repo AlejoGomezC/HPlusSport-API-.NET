@@ -8,7 +8,10 @@ namespace HPlusSport.API.Models
         {
             var type = typeof(TEntity);
             var expression2 = Expression.Parameter(type, "t");
-            var property = type.GetProperty(sortBy);
+            var property = type.GetProperty(sortBy)
+               ?? throw new ArgumentException($"La propiedad '{sortBy}' no existe en {typeof(TEntity).Name}");
+
+
             var expression1 = Expression.MakeMemberAccess(expression2, property);
             var lambda = Expression.Lambda(expression1, expression2);
             var result = Expression.Call(

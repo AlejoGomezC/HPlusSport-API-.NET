@@ -17,14 +17,6 @@ namespace HPlusSport.API.Controllers
 
             _context.Database.EnsureCreated();
         }
-        /*
-        [HttpGet]
-        public IEnumerable<Product> GetAllProducts()
-        {
-            return _context.Products.ToArray();
-
-        }
-        */
 
         [HttpGet]
         public async Task<ActionResult> GetAllProducts([FromQuery] ProductQueryParameters queryParameters)
@@ -46,6 +38,12 @@ namespace HPlusSport.API.Controllers
                 products = products.Where( p => p.Name.StartsWith(queryParameters.FirstLetter));
             }
 
+            if (queryParameters.SearchTerm != null)
+            {
+                products = products.Where(p => p.Name.Contains(queryParameters.SearchTerm, StringComparison.OrdinalIgnoreCase) 
+                                       || p.Sku.Contains(queryParameters.SearchTerm, StringComparison.OrdinalIgnoreCase));
+            }
+
             if(!string.IsNullOrEmpty(queryParameters.Sku))
             {
                 products = products.Where(p => p.Sku == queryParameters.Sku);
@@ -53,7 +51,7 @@ namespace HPlusSport.API.Controllers
 
             if(!string.IsNullOrEmpty(queryParameters.Name))
             {
-                products = products.Where(p => p.Name.ToLower().Contains(queryParameters.Name.ToLower()));
+                products = products.Where(p => p.Name.Contains(queryParameters.Name, StringComparison.OrdinalIgnoreCase));
             }
 
             if (!string.IsNullOrEmpty(queryParameters.SortBy))

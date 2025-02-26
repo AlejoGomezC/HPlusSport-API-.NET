@@ -9,21 +9,22 @@
 @section Scripts {
 
     <script>
-        let url = "https://localhost:5215";
+        let url = "http://localhost:5215/api/products";
         let productsList = document.getElementById("products-list");
 
-        fecth(url)
+        fetch(url)
             .then(response => response.json())
-            .then(data => showProdcuts(data))
-            .cath( ex => {
+            .then(data => showProducts(data))
+            .catch( ex => {
                 alert("Error: " + ex);
-                console.log(ex);
+                console.error(ex);
             });
 
         function showProducts(products) {
             products.forEach(product => {
                 let li = document.createElement("li");
-                li.textContent = product.name;
+                let text = `${product.name} - ${product.price}`;
+                li.appendChild(document.createTextNode(text));
                 productsList.appendChild(li);
             });
         }
